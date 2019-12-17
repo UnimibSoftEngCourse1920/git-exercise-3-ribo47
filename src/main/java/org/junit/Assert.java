@@ -177,7 +177,7 @@ public class Assert {
      * @param unexpected unexpected value to check
      * @param actual the value to check against <code>unexpected</code>
      */
-    public static void assertNotEquals(String message, Object unexpected,
+    public static void assertNotEquals(String message, Object unexpected, 
             Object actual) {
         if (equalsRegardingNull(unexpected, actual)) {
             failEquals(message, actual);
