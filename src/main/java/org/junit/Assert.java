@@ -119,7 +119,7 @@ public class Assert {
         }
     }
     
-    static public void assertGreaterThan(Object expBigger, Object expSmaller, java.util.Comparator<Object> comparator)
+    static public <T> void assertGreaterThan(T expBigger, T expSmaller, java.util.Comparator<T> comparator)
     {
         if(comparator.compare(expBigger, expSmaller)>0)
             System.out.println("First obj greater than second");
