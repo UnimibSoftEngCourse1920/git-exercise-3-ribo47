@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertGreaterThan;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
@@ -44,6 +45,7 @@ public class AssertionTest {
             assertEquals("java.lang.AssertionError", exception.toString());
         }
     }
+    
 
     @Test
     public void failWithMessageToString() {
@@ -105,6 +107,7 @@ public class AssertionTest {
                     .getMessage());
         }
     }
+   
 
     @Test
     public void arraysDifferAtElement1nullMessage() {
@@ -257,6 +260,20 @@ public class AssertionTest {
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }
+    
+    @Test
+    public void greaterThan(java.util.Comparator<Object> c) {
+        Object o = new Object();
+        assertGreaterThan(o, o, c);
+        assertGreaterThan("abc", "abc", c);
+        assertGreaterThan(true, true, c);
+        assertGreaterThan((byte) 1, (byte) 1, c);
+        assertGreaterThan('a', 'a', c);
+        assertGreaterThan((short) 1, (short) 1, c);
+        assertGreaterThan(1, 1, c); // int by default, cast is unnecessary
+        assertGreaterThan(1l, 1l, c);
+    }
+
 
     @Test(expected = AssertionError.class)
     public void notEqualsObjectWithNull() {
