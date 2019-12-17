@@ -120,6 +120,15 @@ public class Assert {
             failNotEquals(message, expected, actual);
         }
     }
+    
+    static public <T> void assertGreaterThan(T expBigger, T expSmaller, java.util.Comparator<T> comparator)
+    {
+        if(comparator.compare(expBigger, expSmaller)>0)
+            System.out.println("First obj greater than second");
+        else 
+            System.out.println("First obj not greater than second");
+        
+    }
 
     private static boolean equalsRegardingNull(Object expected, Object actual) {
         if (expected == null) {

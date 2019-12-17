@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertGreaterThan;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
@@ -51,6 +52,7 @@ public class AssertionTest {
         }
         throw new AssertionError(ASSERTION_ERROR_EXPECTED);
     }
+    
 
     @Test
     public void failWithMessageToString() {
@@ -146,6 +148,7 @@ public class AssertionTest {
                 "arrays first differed at element [0]; expected:<true> but was:<false>"
         );
     }
+   
 
     @Test
     public void arraysDifferAtElement1nullMessage() {
@@ -410,6 +413,13 @@ public class AssertionTest {
         assertEquals(1.0, 1.0, 0.0);
         assertEquals(1.0d, 1.0d, 0.0d);
     }
+    
+    @Test
+    public <T> void greaterThan(T o1, T o2, java.util.Comparator<T> c) {
+        Assert.assertGreaterThan(o1, o2, c);
+
+    }
+
 
     @Test(expected = AssertionError.class)
     public void notEqualsObjectWithNull() {
