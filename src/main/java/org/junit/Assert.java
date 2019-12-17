@@ -1,5 +1,7 @@
 package org.junit;
 
+import java.util.Comparator;
+
 import org.hamcrest.Matcher;
 import org.hamcrest.MatcherAssert;
 import org.junit.function.ThrowingRunnable;
@@ -121,6 +123,7 @@ public class Assert {
         }
     }
     
+<<<<<<< HEAD
     static public <T> void assertGreaterThan(T expBigger, T expSmaller, java.util.Comparator<T> comparator)
     {
         if(comparator.compare(expBigger, expSmaller)>0)
@@ -128,6 +131,14 @@ public class Assert {
         else 
             System.out.println("First obj not greater than second");
         
+=======
+    public static void assertGreaterThan(Object o, Object o2, Comparator<Object> c) {
+       
+        if(c.compare(o, o2) > 0)
+            System.out.println("First bigger than second");
+        else 
+            System.out.println("First not bigger than second");
+>>>>>>> refs/heads/greater-primitives
     }
 
     private static boolean equalsRegardingNull(Object expected, Object actual) {
@@ -1040,4 +1051,6 @@ public class Assert {
     private static String buildPrefix(String message) {
         return message != null && message.length() != 0 ? message + ": " : "";
     }
+
+    
 }

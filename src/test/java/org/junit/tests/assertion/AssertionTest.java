@@ -415,10 +415,25 @@ public class AssertionTest {
     }
     
     @Test
+<<<<<<< HEAD
     public <T> void greaterThan(T o1, T o2, java.util.Comparator<T> c) {
         Assert.assertGreaterThan(o1, o2, c);
 
     }
+=======
+    public void greaterThan(java.util.Comparator<Object> c) {
+        Object o = new Object();
+        assertGreaterThan(o, o, c);
+        assertGreaterThan("abc", "abc", c);
+        assertGreaterThan(true, true, c);
+        assertGreaterThan((byte) 1, (byte) 1, c);
+        assertGreaterThan('a', 'a', c);
+        assertGreaterThan((short) 1, (short) 1, c);
+        assertGreaterThan(1, 1, c); // int by default, cast is unnecessary
+        assertGreaterThan(1l, 1l, c);
+    }
+
+>>>>>>> refs/heads/greater-primitives
 
 
     @Test(expected = AssertionError.class)
